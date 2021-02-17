@@ -1,0 +1,70 @@
+.section
+	+w($tablet)
+	padding: 0
+
+
+.bread-crumps
+	padding: 24px 0 21px
+	display: flex
+	align-items: center
+	&-last
+		display: block
+		font-weight: 500
+	&-last,.link-text
+		padding-top: 1px
+		margin: 0 7px
+	.link
+		display: inline-flex
+		&-arrow
+			order: 1
+			transform: rotate(180deg)
+
+.product-photo
+	padding-top: 16px
+	display: flex
+	align-items: flex-start
+	justify-content: space-between
+	.block
+		+w(calc(100% - 90px))
+		padding-top: 21px
+		order: 2
+	.slider
+		margin-bottom: 11px
+		height: 253px
+		&-dots
+			display: none
+		&-control
+			.dot
+				+wh(80px,53px)
+				+bdrs(5px)
+				margin-bottom: 6px
+				display: block
+				overflow: hidden
+				img
+					display: block
+				&.active
+					border: 2px solid $light-gray
+	.large-button
+		display: flex
+		justify-content: center
+		font-size: 10px
+		line-height: 12px
+		letter-spacing: -.13px
+		button
+			display: flex
+			align-items: center
+			img
+				+w(20px)
+				margin-left: 7px
+	.row
+		&:after
+			content: none
+	.logo
+		position: absolute
+		top: 0
+		right: 0
+	.view
+		flex-direction: column
+		img
+			margin-right: 0
+			+w(28px)

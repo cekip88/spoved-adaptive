@@ -1,0 +1,55 @@
+section.contacts.block
+	.map.map-kok
+		iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2385.96453763914!2d69.43092920520066!3d53.27225504045221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x424c9490d813dfa9%3A0x57d7dd6f04ad804a!2z0JzQsNCz0LDQt9C40L0gMTEy!5e0!3m2!1sru!2skz!4v1612686762809!5m2!1sru!2skz" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0").kok
+		iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2501.8272844545572!2d71.4683311!3d51.1669735!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x42458110db04483d%3A0xe6cf23a9fbaf0c8a!2z0JzQtdGA0LrRg9GA0LjQuSDQuCDQmg!5e0!3m2!1sru!2skz!4v1612521327253!5m2!1sru!2skz" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0").nur
+		.map-button-row
+			button(data-click-action='front:mapClick').map-button.kok Кокшетау
+			button(data-click-action='front:mapClick').map-button.nur Нур-Султан
+	.section.contacts-info.bricks
+		.m12.t3.d3.info-unit
+			.info-icon
+				include ../../img/address-red.svg
+			.info-desc
+				.info-desc-block
+					h6.info-title
+						span Кокшетау
+					p.info-text
+						span Адрес:
+						span мкр. Юбилейный 2А,
+						span Магазин "112"
+				.info-desc-block
+					h6.info-title
+						span Телефоны:
+					p.info-text
+						a(href='tel:+77079504112') +7 707-95-04-112
+						a(href='tel:87162441081') 8(7162) 44-10-81
+		.m12.t3.d3.info-unit
+			.info-icon
+				include ../../img/address-red.svg
+			.info-desc
+				.info-desc-block
+					h6.info-title
+						span Нур-Султан
+					p.info-text
+						span Адрес:
+						span ул. Циалковского, д 4,
+						span Бизнес Центр
+						span "Меркурий",
+						span офис № 319
+				.info-desc-block
+					h6.info-title
+						span Телефоны:
+					p.info-text
+						a(href='tel:+77084250501') +7 708-425-05-01
+						a(href='tel:+77172250501') +7 717-225-05-01
+		.tl1.dwd2
+		.m12.t6.tl5.d4.info-unit
+			form.contacts-form
+				h3.form-title
+					span Обратная связь
+				input(placeholder='Ф.И.О.').form-input
+				input(placeholder='E-mail').form-input
+				textarea(placeholder='Сообщение').form-textarea
+				button.button
+					span Отправить
+.block

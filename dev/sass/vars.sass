@@ -1,0 +1,52 @@
+%df
+	display: flex
+%dfi
+	@extend %df
+	justify-content: space-between
+	align-items: center
+%dfc
+	@extend %df
+	justify-content: center
+	align-items: center
+
+\:root
+	///*--==[ Размеры экранов ]==--*/
+	--mobile-width: calc(100% - 20px)
+	--mobile-large-width: 460px
+	--tablet-width: 740px
+	--tablet-large-width: 1000px
+	--desktop-width: 1170px
+
+	// --==[ Шрифты ]==--
+	--fontsize-body: 14px
+	--freg: ''
+	// --==[ Отступы ]==--
+	--col: 70px
+	--gap: 30px
+
+
+
+// --==[ Ширины ]==--
+$mobile: var(--mobile-width)
+$mobile-large: var(--mobile-large-width)
+$tablet: var(--tablet-width)
+$tablet-large: var(--tablet-large-width)
+$desktop: var(--desktop-width)
+
+///*--==[ Отступы ]==--*/
+$col: var(--col)
+$gap: var(--gap)
+
+$transition: .35s ease
+
+// --==[ Цвета ]==--
+$black: #000
+$light-black: #202020
+
+$red: #D60F0F
+
+$white: #FFF
+
+$gray: #878787
+$light-gray: #D3D3D3
+$dark-gray: #383838

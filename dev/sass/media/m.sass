@@ -1,0 +1,396 @@
+.section
+	padding: 0 10px
+	margin: 0 auto
+
+.bread-crumps
+	padding: 12px 0 8px
+	letter-spacing: 0.3px
+	&-last
+		display: none
+	&-last,.link
+		font-size: 12px
+		line-height: 14px
+	.link
+		display: none
+		align-items: center
+		color: $gray
+		&-arrow
+			+wh(5px,13px)
+			position: relative
+			&:after,&:before
+				+af
+				+wh(6px,1px)
+				background-color: $gray
+				position: absolute
+			&:before
+				transform: rotate(45deg)
+				bottom: 4px
+			&:after
+				transform: rotate(-45deg)
+				top: 4px
+		&-text
+			margin-left: 7px
+		&-last
+			display: inline-flex
+
+.product-photo
+	position: relative
+	.slider
+		+wh(100%,157px)
+		margin-bottom: 7px
+		position: relative
+		&-dots
+			display: flex
+			align-items: center
+			.dot
+				+wh(9px)
+				margin-right: 8px
+				background-color: #CACACA
+				border-radius: 100%
+				transition: $transition
+				&.active
+					+wh(11px)
+					background-color: $dark-gray
+				&:last-child
+					margin-right: 0
+		&-control
+			.dot
+				display: none
+	.slide
+		+wh(100%)
+		+dfc
+		opacity: 0
+		visibility: hidden
+		overflow: hidden
+		position: absolute
+		transition: $transition
+		img
+			+w(100%)
+		&.active
+			opacity: 1
+			visibility: visible
+	.large-button
+		display: none
+	.row
+		padding-bottom: 12px
+		display: flex
+		align-items: center
+		justify-content: space-between
+		&:after
+			+af
+			+wh(100%,1px)
+			background-color: $light-gray
+			position: absolute
+			bottom: 0
+	.logo
+		+w(80px)
+		img
+			display: block
+	.view
+		+w(100%)
+		display: flex
+		align-items: center
+		font-size: 12px
+		line-height: 14px
+		color: $gray
+		img
+			+w(20px)
+			margin-right: 7px
+.product-info,.product-desc
+	.row
+		display: flex
+		align-items: flex-start
+		justify-content: space-between
+	.info
+		&-title
+			flex: 0 0 50%
+			font-size: 18px
+			line-height: 22px
+			color: $light-black
+			font-weight: 600
+		&-price
+			padding: 10px 0 8px
+	.col
+		flex: 0 0 38%
+		display: flex
+		flex-direction: column
+		.price
+			margin-bottom: 7px
+			display: flex
+			align-items: flex-end
+		.new
+			margin-right: 8px
+			margin-left: auto
+			font-weight: 500
+			font-size: 18px
+			line-height: 17px
+			color: $red
+		.old
+			text-decoration: line-through
+			font-size: 14px
+			line-height: 1
+			color: #737373
+		.offer
+			font-family: 'Roboto Condensed'
+			color: $light-black
+			text-align: right
+			font-size: 12px
+			line-height: 19px
+			text-decoration: underline
+			strong
+				font-size: 14px
+				font-weight: 700
+	.block
+		display: flex
+		flex-direction: column
+		&:after
+			+af
+			+wh(100%,1px)
+			background-color: $light-gray
+	.label
+		padding: 23px 0 24px
+		display: flex
+		align-items: center
+		color: #242424
+		strong
+			font-weight: 700
+			font-size: 17px
+			line-height: 13px
+		div
+			height: 11px
+			position: relative
+		input
+			height: 11px
+			font-size: 15px
+			line-height: 11px
+			position: absolute
+			z-index: -1
+			top: 0
+		.question
+			+bdrs(100%)
+			+wh(16px)
+			+dfc
+			padding-right: 1px
+			margin-left: 11px
+			font-size: 13.24px
+			line-height: 1
+			color: #979797
+			border: .88px solid #979797
+	.plus
+		+wh(13px)
+		+dfc
+		margin-left: auto
+		margin-right: 5px
+		position: relative
+		&:before,&:after
+			+af
+			+bdrs(1.25px)
+			background-color: #515151
+			position: absolute
+			+wh(100%,2px)
+		&:before
+			transform: rotate(90deg)
+			transition: $transition
+	.content
+		max-height: 0
+		padding: 0
+		overflow: hidden
+		transition: $transition
+	.color
+		&-photos
+			padding-bottom: 22px
+			display: flex
+			align-items: center
+			overflow: auto
+			button
+				flex: 0 0 132px
+				height: 70px
+				margin-right: 6px
+				&.active
+					border: 2px solid #5F5F5F
+				span
+					display: none
+		&-colors
+			padding-bottom: 8px
+			display: flex
+			align-items: center
+			flex-wrap: wrap
+			button
+				+wh(39px)
+				+dfc
+				+bdrs(100%)
+				margin-right: 4px
+				margin-bottom: 17px
+				border: 2px solid transparent
+				&.active
+					border-color: #5F5F5F
+				.inner
+					+wh(29px)
+					+bdrs(100%)
+					overflow: hidden
+					img
+						+wh(100%)
+						object-fit: cover
+					&.red
+						background-color: #CF2626
+					&.gray
+						background-color: #919191
+					&.violet
+						background-color: #771FA3
+				span
+					display: none
+.block
+	input[type='checkbox']
+		&:checked+.label .plus
+			&:before
+				width: 2px
+		&:checked~.content
+			max-height: 700px
+.buttons-block
+	padding-top: 20px
+	padding-bottom: 17px
+	display: flex
+	flex-direction: column
+	align-items: center
+	.buttons
+		margin-bottom: 3px
+		&.active
+			+w(100%)
+			margin-bottom: 0
+			padding: 10px 18px
+			display: flex
+			align-items: center
+			justify-content: space-between
+			background-color: $white
+			box-shadow: 0 -3px 8px 0 rgba($black,.22)
+			position: fixed
+			bottom: 0
+			z-index: 100
+			.button
+				flex: 0 0 calc(50% - 7px)
+				margin-bottom: 0
+				padding: 14px 0
+				span
+					font-size: 15px
+					line-height: 16px
+	.button
+		+w(100%)
+		+bdrs(5px)
+		padding: 18px 0 17px
+		span
+			display: block
+			font-size: 19px
+			font-weight: 500
+			color: $white
+			line-height: 18px
+			letter-spacing: -.25px
+		&.blue
+			background-color: #398ED2
+			margin-bottom: 15px
+		&.green
+			background-color: #5EA238
+	.branded
+		margin-bottom: 19px
+		font-family: 'Roboto Condensed'
+		font-size: 11px
+		line-height: 21px
+		color: #242424
+	.promotion,.gift
+		display: flex
+		align-items: center
+		img
+			margin-right: 8px
+	.promotion
+		margin-bottom: 14px
+		img
+			+w(13px)
+		span
+			font-size: 15px
+			line-height: 14px
+			color: #5EA238
+	.gift
+		img
+			+w(14px)
+		a
+			color: #398ED2
+			font-size: 15px
+			line-height: 14px
+			text-decoration: underline
+			span
+			strong
+				font-weight: 700
+.product-desc
+	padding-bottom: 54px
+.sliders
+	padding-left: 10px
+	padding-bottom: 50px
+.multiple-slider
+	margin-bottom: 20px
+	&:last-child
+		margin-bottom: 0
+	.title
+		font-weight: 700
+		font-size: 20px
+		line-height: 24px
+		letter-spacing: -.26px
+		color: #242424
+	.slider
+		margin-top: 13px
+		display: flex
+		align-items: center
+		overflow: hidden
+	.slide
+		+w(154px)
+		flex: 0 0 154px
+		margin-right: 10px
+		padding-bottom: 11px
+		display: flex
+		flex-direction: column
+		align-items: center
+		border: 1px solid #D6D6D6
+		&:last-child
+			margin-right: 0
+		&:hover
+			.slide-btn
+				opacity: 1
+				visibility: visible
+		&-btn
+			+bdrs(14.5px)
+			display: inline-block
+			margin: 3px auto 3px 3px
+			padding: 5px 12px 4px
+			background-color: #398ED2
+			font-weight: 500
+			font-size: 11px
+			line-height: 12px
+			letter-spacing: -.09px
+			color: $white
+			opacity: 0
+			visibility: hidden
+			transition: $transition
+		&-img
+			+dfc
+			height: 110px
+			background-color: #F6F4F4
+			border-top: 1px solid #D6D6D6
+			border-bottom: 1px solid #D6D6D6
+			overflow: hidden
+		&-colors
+			display: none
+		&-title
+			margin-top: 11px
+			font-weight: 500
+			font-size: 14px
+			color: #2C2C2C
+			line-height: 1
+		&-subtitle
+			margin-top: 9px
+			font-size: 10px
+			line-height: 12px
+			color: #2C2C2C
+		&-price
+			margin-top: 11px
+			font-size: 13px
+			font-weight: 500
+			line-height: 16px
+			color: #787878

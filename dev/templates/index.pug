@@ -1,0 +1,250 @@
+extends template/main
+append vars
+	-
+		page_title= 'Main'
+block content
+	main
+		section
+			.section
+				.bread-crumps
+					a(href='#').link
+						span.link-arrow
+						span.link-text Home
+					a(href='#').link.link-last
+						span.link-arrow
+						span.link-text Category
+					span.bread-crumps-last Product
+			.section
+				.product-photo
+					.block
+						.slider
+							.slide.active
+								+img('silhouette_dynamics_colorwave_aw.jpg')
+							.slide
+								+img('silhouette_dynamics_colorwave_aw_gray.jpg')
+							.slide
+								+img('silhouette_dynamics_colorwave_aw_light.jpg')
+						.large-button
+							button
+								span Click to Enlarge
+								+img('large-icon.jpg')
+					.row
+						.logo
+							+img('silhouette_logo.png')
+						.slider-dots
+							button.dot.active
+							button.dot
+							button.dot
+						.slider-control
+							button.dot.active
+								+img('silhouette_dynamics_colorwave_aw.jpg')
+							button.dot
+								+img('silhouette_dynamics_colorwave_aw_gray.jpg')
+							button.dot
+								+img('silhouette_dynamics_colorwave_aw_light.jpg')
+							button.view
+								+img('arrow-around.jpg')
+								span 360° View
+				.product-info
+					.info-price.row
+						h3.info-title Silhouette Dynamics Colorwave aw
+						.col
+							.price
+								span.new $324.00
+								span.old $415.00
+							a(href='#').offer
+								span Or 4 interest-free payments of&nbsp;
+								strong $493.75
+					.glasses-form
+						.block
+							input(type='checkbox')#info-color
+							label(for='info-color').label
+								strong Frame Color:&nbsp;
+								div
+									input(type='text' disabled='true' value='3040 Cherry Red')
+								.plus
+							.content
+								.color-photos
+									button.active
+										+img('silhouette_dynamics_colorwave_aw.jpg')
+										span Cherry Red Photo
+									-for (let i = 0; i < 5; i++)
+										button
+											+img('silhouette_dynamics_colorwave_aw.jpg')
+											span Cherry Red Photo
+								.color-colors
+									button.active
+										.inner.red
+										span 3040 Cherry Red
+									button
+										.inner.gray
+										span 3041 Midnight Gray
+									button
+										.inner
+											+img('25.jpg')
+										span Dark Black-Orange
+									button
+										.inner
+											+img('16.png')
+										span Dark Gray
+									button
+										.inner.violet
+										span Violet
+									button
+										.inner
+											+img('25.jpg')
+										span Dark Black-Orange
+									button
+										.inner
+											+img('16.png')
+										span Dark Gray
+									button
+										.inner.violet
+										span Violet
+									button
+										.inner.red
+										span 3040 Cherry Red
+									button
+										.inner.gray
+										span 3041 Midnight Gray
+									button
+										.inner
+											+img('25.jpg')
+										span Dark Black-Orange
+									button
+										.inner
+											+img('16.png')
+										span Dark Gray
+									button
+										.inner.violet
+										span Violet
+									button
+										.inner
+											+img('25.jpg')
+										span Dark Black-Orange
+									button
+										.inner
+											+img('16.png')
+										span Dark Gray
+						.block
+							input(type='checkbox')#info-size
+							label(for='info-size').label
+								strong Frame Size:&nbsp;
+								span Choose Size
+								span.question ?
+								.plus
+							.content
+
+						.block
+							input(type='checkbox')#info-shapes
+							label(for='info-shapes').label
+								strong Lens Shapes:&nbsp;
+								span 12 Shapes Available
+								.plus
+							.content
+					.buttons-block
+						.buttons
+							button.button.blue
+								span Choose Lenses
+							button.button.green
+								span Add Frames to Cart
+						span.branded Branded Demo Lenses Included with Frames
+						.promotion
+							+img('green_ok.jpg')
+							span Free Shipping
+						.gift
+							+img('green_gift.jpg')
+							a(href='#')
+								span Earn&nbsp;
+								strong $10.30&nbsp;
+								span in Cool Cash!
+				.product-desc
+					.block
+						input(type='checkbox')#desc-details
+						label(for='desc-details').label
+							strong Product Details
+							.plus
+						.content
+					.block
+						input(type='checkbox')#desc-contents
+						label(for='desc-contents').label
+							strong Package Contents
+							.plus
+						.content
+					.block
+						input(type='checkbox')#desc-lenses
+						label(for='desc-lenses').label
+							strong Prescription Lenses
+							.plus
+						.content
+					.block
+						input(type='checkbox')#desc-FAQs
+						label(for='desc-FAQs').label
+							strong FAQs
+							.plus
+						.content
+		section.sliders
+			.multiple-slider
+				h3.title
+					span You May Also Like
+				.slider
+					-for (let i = 0; i < 3; i++)
+						.slide
+							a(href='#').slide-btn Ships Today
+							.slide-img
+								+img('cartier_CT0011S.jpg')
+							ul.slide-colors
+								li.slide-color.light-brown.active
+								li.slide-color.brown
+								li.slide-color.beige
+							a(href='#').slide-title Cartier CT0011S
+							span.slide-subtitle Multiple Colors Available
+							span.slide-price $945
+						.slide
+							a(href='#').slide-btn Ships Today
+							.slide-img
+								+img('dark-brown-glasses.jpg')
+							ul.slide-colors
+								li.slide-color.light-brown.active
+								li.slide-color.brown
+								li.slide-color.beige
+								li.slide-color.beige
+								li.slide-color.beige
+								li.slide-color.beige
+								li.slide-number
+									span +9
+							a(href='#').slide-title Cartier CT0011S
+							span.slide-subtitle Multiple Colors Available
+							span.slide-price $945
+			.multiple-slider
+				h3.title
+					span Recently Viewed
+				.slider
+					-for (let i = 0; i < 3; i++)
+						.slide
+							a(href='#').slide-btn Ships Today
+							.slide-img
+								+img('cartier_CT0011S.jpg')
+							ul.slide-colors
+								li.slide-color.light-brown.active
+								li.slide-color.brown
+								li.slide-color.beige
+							a(href='#').slide-title Cartier CT0011S
+							span.slide-subtitle Multiple Colors Available
+							span.slide-price $945
+						.slide
+							a(href='#').slide-btn Ships Today
+							.slide-img
+								+img('dark-brown-glasses.jpg')
+							ul.slide-colors
+								li.slide-color.light-brown.active
+								li.slide-color.brown
+								li.slide-color.beige
+								li.slide-color.beige
+								li.slide-color.beige
+								li.slide-color.beige
+								li.slide-number
+									span +9
+							a(href='#').slide-title Cartier CT0011S
+							span.slide-subtitle Multiple Colors Available
+							span.slide-price $945
