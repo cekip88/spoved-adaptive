@@ -18,12 +18,12 @@ block content
 				.product-photo
 					.block
 						.slider
-							.slide.active
+							div(data-name='slide-1').slide.active
 								+img('silhouette_dynamics_colorwave_aw.jpg')
-							.slide
-								+img('silhouette_dynamics_colorwave_aw_gray.jpg')
-							.slide
+							div(data-name='slide-2').slide
 								+img('silhouette_dynamics_colorwave_aw_light.jpg')
+							div(data-name='slide-3').slide
+								+img('silhouette_dynamics_colorwave_aw_gray.jpg')
 						.large-button
 							button
 								span Click to Enlarge
@@ -32,9 +32,9 @@ block content
 						.logo
 							+img('silhouette_logo.png')
 						.slider-dots
-							button.dot.active
-							button.dot
-							button.dot
+							button(data-name='slide-1').dot.active
+							button(data-name='slide-2').dot
+							button(data-name='slide-3').dot
 						.slider-control
 							button.dot.active
 								+img('silhouette_dynamics_colorwave_aw.jpg')
@@ -56,12 +56,12 @@ block content
 								span Or 4 interest-free payments of&nbsp;
 								strong $493.75
 					.glasses-form
-						.block
+						.block.color
 							input(type='checkbox')#info-color
 							label(for='info-color').label
 								strong Frame Color:&nbsp;
-								div
-									input(type='text' disabled='true' value='3040 Cherry Red')
+								span.block-info Choose Color
+								input(type='hidden' name='color')
 								.plus
 							.content
 								.color-photos
@@ -73,34 +73,6 @@ block content
 											+img('silhouette_dynamics_colorwave_aw.jpg')
 											span Cherry Red Photo
 								.color-colors
-									button.active
-										.inner.red
-										span 3040 Cherry Red
-									button
-										.inner.gray
-										span 3041 Midnight Gray
-									button
-										.inner
-											+img('25.jpg')
-										span Dark Black-Orange
-									button
-										.inner
-											+img('16.png')
-										span Dark Gray
-									button
-										.inner.violet
-										span Violet
-									button
-										.inner
-											+img('25.jpg')
-										span Dark Black-Orange
-									button
-										.inner
-											+img('16.png')
-										span Dark Gray
-									button
-										.inner.violet
-										span Violet
 									button
 										.inner.red
 										span 3040 Cherry Red
@@ -126,22 +98,130 @@ block content
 										.inner
 											+img('16.png')
 										span Dark Gray
-						.block
+									button
+										.inner.violet
+										span Violet
+									button
+										.inner.red
+										span 3040 Cherry Red
+									button
+										.inner.gray
+										span 3041 Midnight Gray
+									button
+										.inner
+											+img('25.jpg')
+										span Dark Black-Orange
+									button
+										.inner
+											+img('16.png')
+										span Dark Gray
+									button
+										.inner.violet
+										span Violet
+									button
+										.inner
+											+img('25.jpg')
+										span Dark Black-Orange
+									button
+										.inner
+											+img('16.png')
+										span Dark Gray
+						.block.size
 							input(type='checkbox')#info-size
 							label(for='info-size').label
 								strong Frame Size:&nbsp;
-								span Choose Size
+								span.block-info Choose Size
+								input(type='hidden' name='lens-width')
+								input(type='hidden' name='lens-height')
+								input(type='hidden' name='lens-bridge')
+								input(type='hidden' name='lens-length')
 								span.question ?
 								.plus
 							.content
-
-						.block
-							input(type='checkbox')#info-shapes
-							label(for='info-shapes').label
-								strong Lens Shapes:&nbsp;
-								span 12 Shapes Available
+								.size-list
+									.size-line
+										+img('size_eye.png')
+										.select(data-name='lens-width')
+											button.select-head
+												span Lens Width:&nbsp;
+												strong
+												span
+											.select-body
+												button 54 mm
+												button 55 mm
+												button 56 mm
+												button 57 mm
+									.size-line
+										+img('size_vertical.png')
+										.select(data-name='lens-height')
+											button.select-head
+												span Lens Height:&nbsp;
+												strong
+												span
+											.select-body
+												button 54 mm
+												button 55 mm
+												button 56 mm
+												button 57 mm
+									.size-line
+										+img('size_bridge.png')
+										.select(data-name='lens-bridge')
+											button.select-head
+												span Bridge:&nbsp;
+												strong
+												span
+											.select-body
+												button 54 mm
+												button 55 mm
+												button 56 mm
+												button 57 mm
+									.size-line
+										+img('size_temple.png')
+										.select(data-name='lens-length')
+											button.select-head
+												span Temple Length:&nbsp;
+												strong
+												span
+											.select-body
+												button 54 mm
+												button 55 mm
+												button 56 mm
+												button 57 mm
+						.block.size-details
+							input(type='checkbox')#glasses-size
+							label(for='glasses-size').label
+								input(type='hidden' name='glasses-size')
+								strong Frame Size:&nbsp;
+								span.block-info Choose Size
+								span.question ?
 								.plus
 							.content
+								label(data-name='glasses-size')
+									input(type='radio' name='gl-size')
+									.radio
+									span Medium (53–15–140)
+								label(data-name='glasses-size')
+									input(type='radio' name='gl-size')
+									.radio
+									span Medium (53–15–140)
+								label(data-name='glasses-size')
+									input(type='radio' name='gl-size')
+									.radio
+									span Medium (53–15–140)
+								button.size-popup-show Size Guide
+						.block.lens
+							input(type='checkbox')#info-shapes
+							label(for='info-shapes').label
+								input(type='hidden')
+								strong Lens Shapes:&nbsp;
+								span.block-info 12 Shapes Available
+								.plus
+							.content
+								.lens-buttons
+									-for (let i = 0; i < 8; i++)
+										button
+											+img('lens-2.png')
+											span square
 					.buttons-block
 						.buttons
 							button.button.blue
@@ -154,35 +234,76 @@ block content
 							span Free Shipping
 						.gift
 							+img('green_gift.jpg')
-							a(href='#')
+							button.cool-cash-button
 								span Earn&nbsp;
 								strong $10.30&nbsp;
 								span in Cool Cash!
 				.product-desc
-					.block
+					.block.details
 						input(type='checkbox')#desc-details
 						label(for='desc-details').label
 							strong Product Details
 							.plus
 						.content
-					.block
+							ul.details-list.new-row
+								li • Titanium Construction
+								li • Unisex Drill Mount Style
+								li • Prescription Lenses Available (On Sale!)
+								li • Insurance Eligible when purchased with prescription lenses
+								li • Flexible Spending Account Eligible when purchased with prescription lenses
+							p.new-row Made in Austria
+							p Extended Exchange/Return Policy
+							p UPC: Not Available
+							h5.details-title.new-row ABOUT SILHOUETTE
+							p.new-row Silhouette Rimless frames make seeing an experience without boundaries. The feeling of relaxed freedom, independence and easiness for all your senses are Silhouette's inspiration for innovation and revolution. Each and every day is dedicated to the new, the consistent intention to create the very best for spectacle wearers. We surmount the limits of the seemingly impossible and set benchmarks in the design of rimless eyewear. Each single Silhouette eyewear piece is a showpiece - the pride and joy of its wearer and Silhouette.
+					.block.contents
 						input(type='checkbox')#desc-contents
 						label(for='desc-contents').label
 							strong Package Contents
 							.plus
 						.content
-					.block
+							ul.contents-list
+								li • Silhouette Eyeglasses
+								li • Silhouette Genuine Case
+								li • Silhouette Branded Cloth
+								li • CoolCash Gift Certificate ($11.05 value)
+					.block.lenses
 						input(type='checkbox')#desc-lenses
 						label(for='desc-lenses').label
 							strong Prescription Lenses
 							.plus
 						.content
-					.block
+							p Our in-house optical lab offers a full line of custom prescription lenses from Seiko, Younger Optics and Essilor (i.e. Varilux Progressives, Transitions, etc). In addition to offering plastic, polycarbonate, trivex and high-index materials we also specialize in Essilor Crizal Easy, Alize, Avance UV and Sapphire UV (Forte) Anti-Reflective coatings. Our licensed opticians are standing by to answer all your questions. On top of our every-day low prices, we also offer a Scratch Resistant Coating and Drilling at no cost to you.
+							.row
+								+img('crizal.png')
+								+img('essilor.png')
+								+img('varilux.png')
+							.lenses-title Special Offers:
+							.lenses-offer
+								strong Plastic&nbsp;
+								span Prescription Lenses&nbsp;
+								strong.red FREE&nbsp;
+								span with any frame purchase (Restrictions Apply)
+							.lenses-offer
+								strong Polycarbonate&nbsp;
+								span Prescription Lenses&nbsp;
+								strong.red 50% OFF&nbsp;
+								span with any frame purchase
+					.block.faq
 						input(type='checkbox')#desc-FAQs
 						label(for='desc-FAQs').label
 							strong FAQs
 							.plus
 						.content
+							h5.faq-title Will you price match a lower price I found?
+							p.faq-text.new-row Yes! As an authorized online retailer of Silhouette Rimless products we will match our competitors' prices and also guarantee that you will receive a brand new, authentic frame with a full manufacturer warranty.
+							a(href='#').faq-link.new-row Click here to request a price adjustment
+							h5.faq-title.new-row What's your return policy?
+							p.faq-text.new-row
+								span We will replace any defective or damaged item free of charge to ensure 100% satisfaction. We will also allow a one-time exchange for another frame of equal or greater value, if you are unhappy with your initial selection. Read the complete&nbsp;
+								a(href='#').faq-link Returns & Exchanges Policy
+							h5.faq-title.new-row When will I receive my order?
+							p.faq-text.new-row Estimated delivery dates vary depending on product availability and other factors. Orders with prescription lenses will require additional processing time. Click here to view our shipping policy.
 		section.sliders
 			.multiple-slider
 				h3.title
@@ -248,3 +369,73 @@ block content
 							a(href='#').slide-title Cartier CT0011S
 							span.slide-subtitle Multiple Colors Available
 							span.slide-price $945
+		section.frame-size
+			.popup
+				button(data-click-action="Modaler:closeLastModal").popup-close
+					include ../img/close.svg
+				h2.popup-title What is your frame size?
+				p.popup-text You can find you current glasses size on the inside of the temple (arm pieces) to find the measurements.
+				span.popup-info Press numbers to view details
+				input(type='radio' name='popup-size' checked='true')#first
+				input(type='radio' name='popup-size')#second
+				input(type='radio' name='popup-size')#third
+				input(type='radio' name='popup-size')#forth
+				.tabs
+					.tabs-labels
+						label(for='first').first 54
+						span
+						label(for='second').second 17
+						span
+						label(for='third').third 147
+						span
+						label(for='forth').forth 26
+					.tabs-info
+						.first
+							span The first number represent width of lens
+						.second
+							span Second represent lens width
+						.third
+							span Third one is temple length
+						.forth
+							span Forth is bridge size
+				h2.popup-title Measurements
+				table
+					thead
+						tr
+							th
+							th Lens Width
+							th Bridge Width
+							th Temple Width
+					tbody
+						tr
+							td
+								strong Small
+							td 42-48 mm
+							td 16-17 mm
+							td 130-135 mm
+						tr
+							td
+								strong Medium
+							td 49-52 mm
+							td 18-19 mm
+							td 136-140 mm
+						tr
+							td
+								strong Large
+							td 53-58 mm
+							td 20-22 mm
+							td 141-150 mm
+			.cool-cash
+				button(data-click-action="Modaler:closeLastModal").cool-cash-close
+					include ../img/close.svg
+				h2.cool-cash-title COOL CASH
+				p.cool-cash-text This item earns you Cool Cash that may be used on any future purchase as a Cool Frames gift certificate. It is transferable, so you may give it to a friend.
+				p.cool-cash-text On your purchase receipt, you will receive a promo code along with the amount earned to use on coolframes.com.
+			.view360
+				button(data-click-action="Modaler:closeLastModal").view360-close
+					include ../img/close.svg
+				.view360-photo
+					+img('silhouette_dynamics_colorwave_aw.jpg')
+				button.view
+					+img('arrow-around.jpg')
+					span 360° View

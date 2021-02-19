@@ -156,16 +156,9 @@
 			font-weight: 700
 			font-size: 17px
 			line-height: 13px
-		div
-			height: 11px
-			position: relative
-		input
-			height: 11px
+		span
 			font-size: 15px
 			line-height: 11px
-			position: absolute
-			z-index: -1
-			top: 0
 		.question
 			+bdrs(100%)
 			+wh(16px)
@@ -196,6 +189,7 @@
 		padding: 0
 		overflow: hidden
 		transition: $transition
+.product-info
 	.color
 		&-photos
 			padding-bottom: 22px
@@ -207,7 +201,7 @@
 				height: 70px
 				margin-right: 6px
 				&.active
-					border: 2px solid #5F5F5F
+					border: 1.5px solid #398ED2
 				span
 					display: none
 		&-colors
@@ -239,13 +233,123 @@
 						background-color: #771FA3
 				span
 					display: none
+	.size
+		&-list
+			padding-bottom: 32px
+		&-line
+			margin-bottom: 20px
+			display: flex
+			align-items: center
+			&:last-child
+				margin-bottom: 0
+			img
+				width: 81px
+				margin-right: 22px
+				display: block
+	.select
+		position: relative
+		&.active
+			.select-head
+				span:last-child
+					transform: rotate(-135deg) translate(-1px,-1px)
+			.select-body
+				max-height: 185px
+		&-head
+			+wh(238px,37px)
+			+bdrs(4px)
+			padding: 0 12px
+			display: flex
+			align-items: center
+			justify-content: flex-start
+			background-color: #F4F4F4
+			border: 1px solid #D4D4D4
+			span,strong
+				font-size: 15px
+				line-height: 12px
+				color: #242424
+			strong
+				font-weight: 600
+				margin-right: auto
+			span:last-child
+				+wh(7px)
+				display: block
+				transform: rotate(45deg) translate(-1px,-1px)
+				border-bottom: 1px solid #4D4D4D
+				border-right: 1px solid #4D4D4D
+				transition: $transition
+		&-body
+			width: 100%
+			max-height: 0
+			display: flex
+			flex-direction: column
+			align-items: flex-start
+			overflow: auto
+			position: absolute
+			z-index: 10
+			transition: $transition
+			button
+				width: 100%
+				height: 37px
+				padding-left: 12px
+				background-color: #F4F4F4
+				text-align: left
+	.size-details
+		input[type='checkbox']:checked~.content
+			padding-bottom: 19px
+		.content
+			label
+				display: flex
+				align-items: center
+				margin-bottom: 15px
+				&:last-child
+					margin-bottom: 0
+				span
+					font-size: 17px
+					line-height: 15px
+				input
+					&:checked+.radio:after
+						background-color: #398ED2
+					&:checked~span
+						color: #398ED2
+			button
+				color: #398ED2
+				text-decoration: underline
+		.radio
+			+wh(20px)
+			+bdrs(2px)
+			+dfc
+			margin-right: 11.5px
+			border: 1.5px solid #979797
+			transition: $transition
+			&:after
+				+af
+				+wh(11px)
+				transition: $transition
+	.lens
+		input[type='checkbox']:checked~.content
+			padding-bottom: 14.5px
+		&-buttons
+			display: flex
+			align-items: center
+			flex-wrap: wrap
+			button
+				+wh(66px,58px)
+				+dfc
+				+bdrs(5px)
+				margin-right: 5.5px
+				margin-bottom: 8.5px
+				span
+					display: none
+				&.active
+					border: 1.5px solid #398ED2
 .block
 	input[type='checkbox']
 		&:checked+.label .plus
 			&:before
 				width: 2px
 		&:checked~.content
-			max-height: 700px
+			max-height: 500px
+			overflow: visible
 .buttons-block
 	padding-top: 20px
 	padding-bottom: 17px
@@ -311,7 +415,7 @@
 	.gift
 		img
 			+w(14px)
-		a
+		button
 			color: #398ED2
 			font-size: 15px
 			line-height: 14px
@@ -321,6 +425,79 @@
 				font-weight: 700
 .product-desc
 	padding-bottom: 54px
+	.details
+		font-weight: 300
+		font-size: 13px
+		line-height: 17px
+		color: #282828
+		&-title
+			font-weight: 600
+		input[type='checkbox']:checked~.content
+			padding-bottom: 30px
+		.new-row
+			margin-top: 17px
+	.contents
+		&-list
+			font-weight: 300
+			font-size: 14px
+			line-height: 22px
+			color: #282828
+			li
+				margin-bottom: 7px
+		input[type='checkbox']:checked~.content
+			padding-bottom: 18px
+	.lenses
+		.content
+			max-width: 337px
+			p
+				font-size: 12px
+				line-height: 16px
+				font-weight: 300
+				color: #282828
+		.row
+			margin: 22px 0 17px
+			display: flex
+			align-items: flex-start
+			justify-content: space-between
+		&-title
+			font-weight: 600
+			font-size: 14px
+			line-height: 18px
+			color: #EC0C00
+		&-offer
+			margin-top: 9.5px
+			font-size: 14px
+			line-height: 18px
+			color: #282828
+			strong
+				font-weight: 600
+			.red
+				color: #EC0C00
+		input[type='checkbox']:checked~.content
+			padding-bottom: 25px
+	.faq
+		&-title
+			font-weight: 600
+			font-size: 14px
+			line-height: 18px
+			color: #202020
+			&.new-row
+				margin-top: 21px
+		&-text,&-link
+			font-size: 12px
+			line-height: 16px
+			color: #202020
+		&-text
+			&.new-row
+				margin-top: 9px
+		&-link
+			text-decoration: underline
+			color: #398ED2
+			&.new-row
+				margin-top: 21px
+				display: block
+		input[type='checkbox']:checked~.content
+			padding-bottom: 25px
 .sliders
 	padding-left: 10px
 	padding-bottom: 50px
@@ -338,7 +515,7 @@
 		margin-top: 13px
 		display: flex
 		align-items: center
-		overflow: hidden
+		overflow: auto
 	.slide
 		+w(154px)
 		flex: 0 0 154px
@@ -394,3 +571,155 @@
 			font-weight: 500
 			line-height: 16px
 			color: #787878
+
+.frame-size
+	display: none
+modalinner
+	max-width: 100%!important
+.popup
+	padding: 67px 12px 0
+	display: flex
+	flex-direction: column
+	align-items: center
+	text-align: center
+	position: relative
+	&-close
+		position: absolute
+		top: 16px
+		right: 18px
+	&-title
+		font-weight: 700
+		font-size: 22px
+		line-height: 21px
+		color: #242424
+	&-text
+		margin-top: 10px
+		font-size: 15px
+		line-height: 20px
+		color: #242424
+	&-info
+		margin-top: 27px
+		font-size: 13px
+		line-height: 20px
+		color: #5F5F5F
+	.tabs
+		width: 100%
+		margin-top: 13px
+		&-labels
+			display: flex
+			align-items: center
+			justify-content: center
+			label
+				+wh(37px)
+				+bdrs(100%)
+				+dfc
+				border: 2px solid transparent
+			span
+				+wh(1px,13px)
+				margin: 0 8px
+				display: block
+				background-color: #252525
+		&-info
+			+dfc
+			width: 100%
+			height: 19px
+			margin-top: 14px
+			margin-bottom: 51px
+			position: relative
+			.first,.second,.third,.forth
+				opacity: 0
+				visibility: hidden
+				font-size: 16px
+				line-height: 19px
+				color: #398ED2
+				font-weight: 500
+				position: absolute
+	#first:checked~.tabs
+		.tabs-labels .first
+			border-color: #398ED2
+		.tabs-info .first
+			opacity: 1
+			visibility: visible
+	#second:checked~.tabs
+		.tabs-labels .second
+			border-color: #398ED2
+		.tabs-info .second
+			opacity: 1
+			visibility: visible
+	#third:checked~.tabs
+		.tabs-labels .third
+			border-color: #398ED2
+		.tabs-info .third
+			opacity: 1
+			visibility: visible
+	#forth:checked~.tabs
+		.tabs-labels .forth
+			border-color: #398ED2
+		.tabs-info .forth
+			opacity: 1
+			visibility: visible
+	table
+		width: 100%
+		margin-top: 19px
+		border-collapse: collapse
+		thead
+			tr
+				th
+					padding: 6px
+					background-color: #398ED2
+					color: $white
+					font-weight: 600
+					font-size: 12px
+					line-height: 21px
+		td,th
+			border: 1px solid #398ED2
+		td
+			padding: 6px
+			font-size: 14px
+			line-height: 21px
+			color: #242424
+			strong
+				font-weight: 600
+.cool-cash
+	padding: 73px 30px 0
+	position: relative
+	&-close
+		position: absolute
+		top: 16px
+		right: 18px
+	&-title
+		font-size: 27px
+		line-height: 32px
+		font-weight: 700
+		color: #5EA238
+		text-align: center
+	&-text
+		margin-top: 29px
+		font-size: 14px
+		line-height: 21px
+		color: #242424
+.view360
+	padding: 166px 6px 0
+	display: flex
+	align-items: center
+	flex-direction: column
+	position: relative
+	&-close
+		position: absolute
+		top: 16px
+		right: 18px
+	&-photo
+		height: 163px
+		margin-bottom: 28px
+		img
+			+wh(100%)
+			object-fit: cover
+	.view
+		display: flex
+		align-items: center
+		font-size: 12px
+		line-height: 14px
+		color: $gray
+		img
+			+w(20px)
+			margin-right: 7px
