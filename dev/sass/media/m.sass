@@ -65,7 +65,8 @@
 		position: absolute
 		transition: $transition
 		img
-			+w(100%)
+			+wh(100%)
+			object-fit: contain
 		&.active
 			opacity: 1
 			visibility: visible
@@ -86,6 +87,24 @@
 		+w(80px)
 		img
 			display: block
+	.ships
+		height: 38px
+		display: flex
+		align-items: center
+		position: absolute
+		top: -38px
+		right: 0
+		div
+			+dfc
+			height: 21px
+			border-radius: 11px
+			padding: 3px 8px 0
+			background-color: #398ED2
+		span
+			color: $white
+			font-size: 11px
+			line-height: 12px
+			letter-spacing: -.09px
 	.view
 		+w(100%)
 		display: flex
@@ -185,14 +204,12 @@
 			transform: rotate(90deg)
 			transition: $transition
 	.content
-		max-height: 0
-		padding: 0
 		overflow: hidden
 		transition: $transition
 .product-info
 	.color
 		&-photos
-			padding-bottom: 22px
+			margin-bottom: 22px
 			display: flex
 			align-items: center
 			overflow: auto
@@ -240,6 +257,8 @@
 			margin-bottom: 20px
 			display: flex
 			align-items: center
+			&>span
+				display: none
 			&:last-child
 				margin-bottom: 0
 			img
@@ -247,6 +266,7 @@
 				margin-right: 22px
 				display: block
 	.select
+		+w(100%)
 		position: relative
 		&.active
 			.select-head
@@ -255,8 +275,9 @@
 			.select-body
 				max-height: 185px
 		&-head
-			+wh(238px,37px)
+			+wh(100%,37px)
 			+bdrs(4px)
+			max-width: 238px
 			padding: 0 12px
 			display: flex
 			align-items: center
@@ -279,6 +300,7 @@
 				transition: $transition
 		&-body
 			width: 100%
+			max-width: 238px
 			max-height: 0
 			display: flex
 			flex-direction: column
@@ -342,6 +364,9 @@
 					display: none
 				&.active
 					border: 1.5px solid #398ED2
+	.content
+		max-height: 0
+		padding: 0
 .block
 	input[type='checkbox']
 		&:checked+.label .plus
@@ -426,16 +451,14 @@
 .product-desc
 	padding-bottom: 54px
 	.details
-		font-weight: 300
-		font-size: 13px
-		line-height: 17px
 		color: #282828
 		&-title
 			font-weight: 600
-		input[type='checkbox']:checked~.content
-			padding-bottom: 30px
 		.new-row
 			margin-top: 17px
+		&-list li, p
+				font-size: 13px
+				line-height: 17px
 	.contents
 		&-list
 			font-weight: 300
@@ -498,6 +521,11 @@
 				display: block
 		input[type='checkbox']:checked~.content
 			padding-bottom: 25px
+	.block
+		&.active
+			.plus
+				&:before
+					width: 0
 .sliders
 	padding-left: 10px
 	padding-bottom: 50px
@@ -513,13 +541,10 @@
 		color: #242424
 	.slider
 		margin-top: 13px
-		display: flex
-		align-items: center
-		overflow: auto
 	.slide
 		+w(154px)
 		flex: 0 0 154px
-		margin-right: 10px
+		margin: 0 5px
 		padding-bottom: 11px
 		display: flex
 		flex-direction: column
@@ -527,24 +552,22 @@
 		border: 1px solid #D6D6D6
 		&:last-child
 			margin-right: 0
-		&:hover
-			.slide-btn
-				opacity: 1
-				visibility: visible
-		&-btn
-			+bdrs(14.5px)
-			display: inline-block
-			margin: 3px auto 3px 3px
-			padding: 5px 12px 4px
-			background-color: #398ED2
-			font-weight: 500
-			font-size: 11px
-			line-height: 12px
-			letter-spacing: -.09px
-			color: $white
-			opacity: 0
-			visibility: hidden
-			transition: $transition
+		&-ships
+			width: 100%
+			height: 27px
+			padding-left: 3px
+			display: flex
+			align-items: center
+			justify-content: flex-start
+			.ships
+				+bdrs(14.5px)
+				background-color: #398ED2
+				padding: 5px 8px 4px
+				font-weight: 500
+				font-size: 11px
+				line-height: 12px
+				letter-spacing: -.09px
+				color: $white
 		&-img
 			+dfc
 			height: 110px
@@ -573,35 +596,28 @@
 			color: #787878
 
 .frame-size
-	display: none
-modalinner
-	max-width: 100%!important
-.popup
-	padding: 67px 12px 0
-	display: flex
-	flex-direction: column
-	align-items: center
-	text-align: center
-	position: relative
-	&-close
+	height: 0
+	overflow: hidden
+.modal
+	position: fixed
+	z-index: 1000
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+	transition: $transition
+	background-color: $white
+	.close
 		position: absolute
 		top: 16px
 		right: 18px
-	&-title
-		font-weight: 700
-		font-size: 22px
-		line-height: 21px
-		color: #242424
-	&-text
-		margin-top: 10px
-		font-size: 15px
-		line-height: 20px
-		color: #242424
-	&-info
-		margin-top: 27px
-		font-size: 13px
-		line-height: 20px
-		color: #5F5F5F
+.popup
+	.inner
+		padding: 67px 12px 0
+		display: flex
+		flex-direction: column
+		align-items: center
+		text-align: center
 	.tabs
 		width: 100%
 		margin-top: 13px
@@ -653,13 +669,16 @@ modalinner
 			opacity: 1
 			visibility: visible
 	#forth:checked~.tabs
-		.tabs-labels .forth
-			border-color: #398ED2
-		.tabs-info .forth
-			opacity: 1
-			visibility: visible
-	table
+			.tabs-labels .forth
+				border-color: #398ED2
+			.tabs-info .forth
+				opacity: 1
+				visibility: visible
+	.table
 		width: 100%
+		overflow: auto
+	table
+		width: 469px
 		margin-top: 19px
 		border-collapse: collapse
 		thead
@@ -671,6 +690,9 @@ modalinner
 					font-weight: 600
 					font-size: 12px
 					line-height: 21px
+		tbody
+			tr:first-child
+				display: none
 		td,th
 			border: 1px solid #398ED2
 		td
@@ -680,13 +702,24 @@ modalinner
 			color: #242424
 			strong
 				font-weight: 600
+	&-title
+		font-weight: 700
+		font-size: 22px
+		line-height: 21px
+		color: #242424
+	&-text
+		margin-top: 10px
+		font-size: 15px
+		line-height: 20px
+		color: #242424
+	&-info
+		margin-top: 27px
+		font-size: 13px
+		line-height: 20px
+		color: #5F5F5F
 .cool-cash
-	padding: 73px 30px 0
-	position: relative
-	&-close
-		position: absolute
-		top: 16px
-		right: 18px
+	.inner
+		padding: 73px 30px 0
 	&-title
 		font-size: 27px
 		line-height: 32px
@@ -699,27 +732,29 @@ modalinner
 		line-height: 21px
 		color: #242424
 .view360
-	padding: 166px 6px 0
-	display: flex
-	align-items: center
-	flex-direction: column
-	position: relative
-	&-close
-		position: absolute
-		top: 16px
-		right: 18px
-	&-photo
-		height: 163px
-		margin-bottom: 28px
-		img
-			+wh(100%)
-			object-fit: cover
+	.inner
+		padding: 166px 6px 0
+		display: flex
+		align-items: center
+		flex-direction: column
 	.view
 		display: flex
 		align-items: center
-		font-size: 12px
+		font-size: 13.5px
 		line-height: 14px
 		color: $gray
 		img
-			+w(20px)
+			+w(32px)
 			margin-right: 7px
+	&-photo
+		width: 90%
+		margin-bottom: 28px
+	&-desc,.dot
+		display: none
+	.dots
+		width: 100px
+.dn
+	opacity: 0
+	visibility: hidden
+	padding: 0
+	height: 0

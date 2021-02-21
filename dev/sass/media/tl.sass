@@ -1,20 +1,300 @@
 .section
 	+w($tablet-large)
 
-.bread-crumps
-	&-last
-	.link
-		&-arrow
-		&-last
+.product
+	display: flex
+	justify-content: space-between
+	flex-wrap: wrap
+	position: relative
+	&-photo
+		width: calc(100% - 277px)
+		.logo
+			top: 5px
+		.ships
+			height: 24px
+			top: 5px
+			right: initial
+			left: 98px
+	&-info
+		width: 252px
+		position: absolute
+		right: 0
+		top: 0
+		.info
+			&-price
+				padding-top: 0
+			&-title
+				flex: 0 0 100%
+		.row
+			flex-wrap: wrap
+		.col
+			flex: 0 0 100%
+			margin-top: 13px
+			.price
+				margin-bottom: 3px
+			.offer
+				text-align: left
+				line-height: 21px
+			.new
+				margin-left: 0
+				margin-right: 10px
+				font-size: 20px
+		.label
+			padding: 12px 0 15px
+			strong
+				font-size: 14px
+				line-height: 16px
+				letter-spacing: -.18px
+			span
+				font-size: 13px
+				line-height: 10px
+				letter-spacing: -.17px
+				&.active
+					font-size: 10px
+					line-height: 11px
+					letter-spacing: -0.1px
+		.plus
+			+wh(11px)
+		.color
+			&-photos
+				max-height: 126px
+				flex-wrap: wrap
+				button
+					flex-basis: 75px
+					height: 42px
+		.size
+			&-line
+				&>span
+					display: block
+					font-size: 12px
+					line-height: 12px
+					letter-spacing: -.16px
+				img
+					width: 52px
+				.select
+					width: 61px
+					margin-left: auto
+					margin-right: 20px
+					&-head,&-body button
+						height: 21px
+						padding: 0 5px
+					&-head
+						span:first-child
+							display: none
+					&-head strong,&-body button
+						font-size: 12px
+						line-height: 12px
+						letter-spacing: -0.16px
+			&-details
+				.radio
+					+wh(15px)
+					&:after
+						+wh(9px)
+				.content
+					label
+						margin-bottom: 9px
+						span
+							font-size: 15px
+							line-height: 12px
+					button
+						margin-top: 13px
+						font-size: 14px
+						line-height: 11px
+		.select
+			&-body
+				top: 26px
+			&.active
+				.select-body
+					+bdrs(4px)
+					border: 1px solid #D4D4D4
+		.lens
+			&-buttons
+				button
+					+wh(44px,42px)
+	&-desc
+		width: 678px
+		margin-top: 66px
+		display: flex
+		align-items: flex-start
+		position: relative
+		.label
+			padding: 0
+			strong
+				font-size: 14px
+				line-height: 16px
+				letter-spacing: -.18px
+		.plus
+			display: none
+		.block
+			flex: 0 0 auto
+			margin-right: 60px
+			.content
+				position: absolute
+				top: 50px
+				left: 0
+				max-height: initial
+				opacity: 0
+				visibility: hidden
+				transition: $transition
+			&:after
+				height: 3px
+				background-color: transparent
+				margin-top: 5px
+				transition: $transition
+			&.active
+				.content
+					opacity: 1
+					visibility: visible
+				&:after
+					background-color: #000
+		.details
+			&-list li, p
+				font-size: 14px
+				line-height: 21px
+			.new-row
+				margin-top: 34px
+		.lenses
+			.content
+				max-width: 595px
+				p
+					font-size: 14px
+					line-height: 21px
+			.row,.lenses-title,.lenses-offer
+				max-width: 338px
+		.faq
+			&-title
+				&.new-row
+					margin-top: 37px
+.tablet-nomt
+	margin-top: 0!important
 
-.product-photo
-	.block
+.buttons
+	&-block
+		align-items: flex-start
+		.buttons
+			span
+				line-height: 14px
+		.promotion
+			span
+				font-size: 13px
+				line-height: 30px
+		.branded
+			margin-left: auto
+			margin-right: auto
+.multiple-slider
 	.slider
-		&-dots
-			.dot
-		&-control
-			.dot
-	.large-button
+		margin-top: 34px
+	.slide
+		width: 197px
+		flex: 0 0 197px
+		border: none
+		&-colors
+			margin-top: 28px
+			display: flex
+			align-items: center
+		&-color
+			+wh(21px)
+			+dfc
+			+bdrs(100%)
+			&:after
+				+af
+				+wh(13px)
+				+bdrs(100%)
+			&.active
+				border: 1px solid #BEBEBE
+			&.light-brown
+				&:after
+					background-color: #994b3c
+			&.brown
+				&:after
+					background-color: #8d5231
+			&.dark-brown
+				&:after
+					background-color: #39281F
+			&.beige
+				&:after
+					background-color: #CDB6A9
+		&-img
+			background-color: transparent
+			border: none
+		&-subtitle
+			margin-top: 5px
+			font-size: 12px
+		&-price
+			font-size: 14px
+	.title
+		font-size: 18px
+		line-height: 21px
+		letter-spacing: -.24px
+.sliders
+	width: $tablet-large
+	margin: 0 auto
+	padding-left: 0
+
+.modal
+	background-color: transparent
+	.close
+		right: 24px
+		top: 24px
+	.bgc
+		+wh(100%)
+		background-color: rgba($black,.78)
+		position: absolute
+	.inner
+		+bdrs(16px)
+		width: 763px
+		margin: 0 auto
+		background-color: #fff
+		position: absolute
+		top: 114px
+		left: 0
+		right: 0
+.cool-cash
+	&-title
+		text-align: left
+	.inner
+		padding: 113px 81px
+.popup
+	.inner
+		padding: 38px 72px 46px
+	&-title
+		&.big
+			font-size: 24px
+	&-text
+		&.small
+			width: 366px
+	table
+		width: 100%
+		tbody
+			tr
+				border-bottom: 1px solid #CFCFCF
+				&:first-child
+					display: table-row
+		th,td
+			border: none
+		img
+			max-width: 75px
+.view360
+	&-photo
+		height: 353px
+	.inner
+		width: 837px
+		padding: 62px 8px 50px
+	&-desc,.dot
+		display: block
+	&-desc
+		font-size: 14px
+		line-height: 16px
+		color: #5F5F5F
 	.row
-	.logo
-	.view
+		margin-top: 25px
+		display: flex
+		align-items: center
+	.dots
+		width: 350px
+		margin-right: 25px
+	.dot
+		width: 85px
+		margin-right: 25px
+
+

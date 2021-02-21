@@ -14,7 +14,7 @@ block content
 						span.link-arrow
 						span.link-text Category
 					span.bread-crumps-last Product
-			.section
+			.section.product
 				.product-photo
 					.block
 						.slider
@@ -31,17 +31,20 @@ block content
 					.row
 						.logo
 							+img('silhouette_logo.png')
+						.ships
+							div
+								span Ships Today
 						.slider-dots
 							button(data-name='slide-1').dot.active
 							button(data-name='slide-2').dot
 							button(data-name='slide-3').dot
 						.slider-control
-							button.dot.active
+							button(data-name='slide-1').dot.active
 								+img('silhouette_dynamics_colorwave_aw.jpg')
-							button.dot
-								+img('silhouette_dynamics_colorwave_aw_gray.jpg')
-							button.dot
+							button(data-name='slide-2').dot
 								+img('silhouette_dynamics_colorwave_aw_light.jpg')
+							button(data-name='slide-3').dot
+								+img('silhouette_dynamics_colorwave_aw_gray.jpg')
 							button.view
 								+img('arrow-around.jpg')
 								span 360° View
@@ -68,7 +71,7 @@ block content
 									button.active
 										+img('silhouette_dynamics_colorwave_aw.jpg')
 										span Cherry Red Photo
-									-for (let i = 0; i < 5; i++)
+									-for (let i = 0; i < 9; i++)
 										button
 											+img('silhouette_dynamics_colorwave_aw.jpg')
 											span Cherry Red Photo
@@ -141,6 +144,7 @@ block content
 								.size-list
 									.size-line
 										+img('size_eye.png')
+										span Lens Width:
 										.select(data-name='lens-width')
 											button.select-head
 												span Lens Width:&nbsp;
@@ -153,6 +157,7 @@ block content
 												button 57 mm
 									.size-line
 										+img('size_vertical.png')
+										span Lens Height:
 										.select(data-name='lens-height')
 											button.select-head
 												span Lens Height:&nbsp;
@@ -165,6 +170,7 @@ block content
 												button 57 mm
 									.size-line
 										+img('size_bridge.png')
+										span Bridge
 										.select(data-name='lens-bridge')
 											button.select-head
 												span Bridge:&nbsp;
@@ -177,6 +183,7 @@ block content
 												button 57 mm
 									.size-line
 										+img('size_temple.png')
+										span Temple Length:
 										.select(data-name='lens-length')
 											button.select-head
 												span Temple Length:&nbsp;
@@ -210,8 +217,8 @@ block content
 									span Medium (53–15–140)
 								button.size-popup-show Size Guide
 						.block.lens
-							input(type='checkbox')#info-shapes
-							label(for='info-shapes').label
+							input(type='checkbox')#lens
+							label(for='lens').label
 								input(type='hidden')
 								strong Lens Shapes:&nbsp;
 								span.block-info 12 Shapes Available
@@ -240,12 +247,11 @@ block content
 								span in Cool Cash!
 				.product-desc
 					.block.details
-						input(type='checkbox')#desc-details
-						label(for='desc-details').label
+						button.label
 							strong Product Details
 							.plus
 						.content
-							ul.details-list.new-row
+							ul.details-list
 								li • Titanium Construction
 								li • Unisex Drill Mount Style
 								li • Prescription Lenses Available (On Sale!)
@@ -255,10 +261,9 @@ block content
 							p Extended Exchange/Return Policy
 							p UPC: Not Available
 							h5.details-title.new-row ABOUT SILHOUETTE
-							p.new-row Silhouette Rimless frames make seeing an experience without boundaries. The feeling of relaxed freedom, independence and easiness for all your senses are Silhouette's inspiration for innovation and revolution. Each and every day is dedicated to the new, the consistent intention to create the very best for spectacle wearers. We surmount the limits of the seemingly impossible and set benchmarks in the design of rimless eyewear. Each single Silhouette eyewear piece is a showpiece - the pride and joy of its wearer and Silhouette.
+							p.new-row.tablet-nomt Silhouette Rimless frames make seeing an experience without boundaries. The feeling of relaxed freedom, independence and easiness for all your senses are Silhouette's inspiration for innovation and revolution. Each and every day is dedicated to the new, the consistent intention to create the very best for spectacle wearers. We surmount the limits of the seemingly impossible and set benchmarks in the design of rimless eyewear. Each single Silhouette eyewear piece is a showpiece - the pride and joy of its wearer and Silhouette.
 					.block.contents
-						input(type='checkbox')#desc-contents
-						label(for='desc-contents').label
+						button.label
 							strong Package Contents
 							.plus
 						.content
@@ -268,8 +273,7 @@ block content
 								li • Silhouette Branded Cloth
 								li • CoolCash Gift Certificate ($11.05 value)
 					.block.lenses
-						input(type='checkbox')#desc-lenses
-						label(for='desc-lenses').label
+						button.label
 							strong Prescription Lenses
 							.plus
 						.content
@@ -290,8 +294,7 @@ block content
 								strong.red 50% OFF&nbsp;
 								span with any frame purchase
 					.block.faq
-						input(type='checkbox')#desc-FAQs
-						label(for='desc-FAQs').label
+						button.label
 							strong FAQs
 							.plus
 						.content
@@ -308,10 +311,11 @@ block content
 			.multiple-slider
 				h3.title
 					span You May Also Like
-				.slider
+				.slider#alsoSlider
 					-for (let i = 0; i < 3; i++)
 						.slide
-							a(href='#').slide-btn Ships Today
+							.slide-ships
+								.ships Ships Today
 							.slide-img
 								+img('cartier_CT0011S.jpg')
 							ul.slide-colors
@@ -322,14 +326,14 @@ block content
 							span.slide-subtitle Multiple Colors Available
 							span.slide-price $945
 						.slide
-							a(href='#').slide-btn Ships Today
+							.slide-ships
 							.slide-img
 								+img('dark-brown-glasses.jpg')
 							ul.slide-colors
 								li.slide-color.light-brown.active
 								li.slide-color.brown
 								li.slide-color.beige
-								li.slide-color.beige
+								li.slide-color.dark-brown
 								li.slide-color.beige
 								li.slide-color.beige
 								li.slide-number
@@ -340,10 +344,10 @@ block content
 			.multiple-slider
 				h3.title
 					span Recently Viewed
-				.slider
+				.slider#recSlider
 					-for (let i = 0; i < 3; i++)
 						.slide
-							a(href='#').slide-btn Ships Today
+							.slide-ships
 							.slide-img
 								+img('cartier_CT0011S.jpg')
 							ul.slide-colors
@@ -354,14 +358,15 @@ block content
 							span.slide-subtitle Multiple Colors Available
 							span.slide-price $945
 						.slide
-							a(href='#').slide-btn Ships Today
+							.slide-ships
+								.ships Ships Today
 							.slide-img
 								+img('dark-brown-glasses.jpg')
 							ul.slide-colors
 								li.slide-color.light-brown.active
 								li.slide-color.brown
 								li.slide-color.beige
-								li.slide-color.beige
+								li.slide-color.dark-brown
 								li.slide-color.beige
 								li.slide-color.beige
 								li.slide-number
@@ -370,72 +375,113 @@ block content
 							span.slide-subtitle Multiple Colors Available
 							span.slide-price $945
 		section.frame-size
-			.popup
-				button(data-click-action="Modaler:closeLastModal").popup-close
-					include ../img/close.svg
-				h2.popup-title What is your frame size?
-				p.popup-text You can find you current glasses size on the inside of the temple (arm pieces) to find the measurements.
-				span.popup-info Press numbers to view details
-				input(type='radio' name='popup-size' checked='true')#first
-				input(type='radio' name='popup-size')#second
-				input(type='radio' name='popup-size')#third
-				input(type='radio' name='popup-size')#forth
-				.tabs
-					.tabs-labels
-						label(for='first').first 54
-						span
-						label(for='second').second 17
-						span
-						label(for='third').third 147
-						span
-						label(for='forth').forth 26
-					.tabs-info
-						.first
-							span The first number represent width of lens
-						.second
-							span Second represent lens width
-						.third
-							span Third one is temple length
-						.forth
-							span Forth is bridge size
-				h2.popup-title Measurements
-				table
-					thead
-						tr
-							th
-							th Lens Width
-							th Bridge Width
-							th Temple Width
-					tbody
-						tr
-							td
-								strong Small
-							td 42-48 mm
-							td 16-17 mm
-							td 130-135 mm
-						tr
-							td
-								strong Medium
-							td 49-52 mm
-							td 18-19 mm
-							td 136-140 mm
-						tr
-							td
-								strong Large
-							td 53-58 mm
-							td 20-22 mm
-							td 141-150 mm
-			.cool-cash
-				button(data-click-action="Modaler:closeLastModal").cool-cash-close
-					include ../img/close.svg
-				h2.cool-cash-title COOL CASH
-				p.cool-cash-text This item earns you Cool Cash that may be used on any future purchase as a Cool Frames gift certificate. It is transferable, so you may give it to a friend.
-				p.cool-cash-text On your purchase receipt, you will receive a promo code along with the amount earned to use on coolframes.com.
-			.view360
-				button(data-click-action="Modaler:closeLastModal").view360-close
-					include ../img/close.svg
-				.view360-photo
-					+img('silhouette_dynamics_colorwave_aw.jpg')
-				button.view
-					+img('arrow-around.jpg')
-					span 360° View
+			.popup.modal.dn
+				.bgc
+				.inner
+					button.close.popup-close
+						include ../img/close.svg
+					h2.popup-title What is your frame size?
+					p.popup-text.small You can find you current glasses size on the inside of the temple (arm pieces) to find the measurements.
+					span.popup-info Press numbers to view details
+					input(type='radio' name='popup-size' checked='true')#first
+					input(type='radio' name='popup-size')#second
+					input(type='radio' name='popup-size')#third
+					input(type='radio' name='popup-size')#forth
+					.tabs
+						.tabs-labels
+							label(for='first').first 54
+							span
+							label(for='second').second 17
+							span
+							label(for='third').third 147
+							span
+							label(for='forth').forth 26
+						.tabs-info
+							.first
+								span The first number represent width of lens
+							.second
+								span Second represent lens width
+							.third
+								span Third one is temple length
+							.forth
+								span Forth is bridge size
+					h2.popup-title.big Measurements
+					.table
+						table
+							thead
+								tr
+									th
+									th Lens Width
+									th Bridge Width
+									th Temple Width
+									th Temple Width
+							tbody
+								tr
+									td
+									td
+										+img('size_vertical.png')
+									td
+										+img('size_bridge.png')
+									td
+										+img('size_eye.png')
+									td
+										+img('size_temple.png')
+								tr
+									td
+										strong Small
+									td 42-48 mm
+									td 16-17 mm
+									td 130-135 mm
+									td 42-48 mm
+								tr
+									td
+										strong Medium
+									td 49-52 mm
+									td 18-19 mm
+									td 136-140 mm
+									td 42-48 mm
+								tr
+									td
+										strong Large
+									td 53-58 mm
+									td 20-22 mm
+									td 141-150 mm
+									td 4248 mm
+			.cool-cash.modal.dn
+				.bgc
+				.inner
+					button.close.cool-cash-close
+						include ../img/close.svg
+					h2.cool-cash-title COOL CASH
+					p.cool-cash-text This item earns you Cool Cash that may be used on any future purchase as a Cool Frames gift certificate. It is transferable, so you may give it to a friend.
+					p.cool-cash-text On your purchase receipt, you will receive a promo code along with the amount earned to use on coolframes.com.
+			.view360.modal.dn
+				.bgc
+				.inner
+					button.close.view360-close
+						include ../img/close.svg
+					.view360-photo#view360
+						+img('silhouette_dynamics_colorwave_aw.jpg')
+						+img('silhouette_dynamics_colorwave_aw_gray.jpg')
+						+img('silhouette_dynamics_colorwave_aw_light.jpg')
+						+img('silhouette_dynamics_colorwave_aw.jpg')
+						+img('silhouette_dynamics_colorwave_aw_gray.jpg')
+						+img('silhouette_dynamics_colorwave_aw_light.jpg')
+					span.view360-desc Grab image to rotate
+					.row
+						.dots
+							button.dot
+								+img('silhouette_dynamics_colorwave_aw.jpg')
+							button.dot
+								+img('silhouette_dynamics_colorwave_aw_gray.jpg')
+							button.dot
+								+img('silhouette_dynamics_colorwave_aw_light.jpg')
+							button.dot
+								+img('silhouette_dynamics_colorwave_aw.jpg')
+							button.dot
+								+img('silhouette_dynamics_colorwave_aw_gray.jpg')
+							button.dot
+								+img('silhouette_dynamics_colorwave_aw_light.jpg')
+						button.view
+							+img('arrow-around.jpg')
+							span 360° View
