@@ -168,11 +168,21 @@ class Front{
       speed: 300,
       autoplay: true,
       autoplaySpeed: 5000,
-      slidesToShow: 4,
+      slidesToShow: 6,
       arrows: true,
       variableWidth: false,
       responsive:[
         {
+          breakpoint: 1350,
+          settings: {
+            slidesToShow: 5
+          }
+        },{
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 4
+          }
+        },{
           breakpoint: 950,
           settings: {
             arrows: false,
@@ -194,7 +204,7 @@ class Front{
       slidesToShow: 3,
       arrows: false,
       focusOnSelect: true
-    })
+    });
   }
 
   descControl(){
@@ -287,21 +297,23 @@ class Front{
       window.addEventListener('scroll',_.activeButtons);
     }
     _.mainSlider();
+    _.alsoSlider('#alsoSlider');
+    _.alsoSlider('#recSlider');
+    _.viewSlider();
+
+
     _.glassesFormHandlers('.product-info .color');
     _.glassesFormHandlers('.product-info .lens');
     _.selects();
     _.secondSizeMethod();
-    _.alsoSlider('#alsoSlider');
-    _.alsoSlider('#recSlider');
     _.descControl();
-
 
 
 
     _.showSizePopup('.size-popup-show','.frame-size .popup');
     _.showSizePopup('.cool-cash-button','.frame-size .cool-cash');
-    _.showSizePopup('.product-photo .view','.frame-size .view360');
-    _.viewSlider();
+    _.showSizePopup('.product-photo .slider','.frame-size .view360');
+    _.showSizePopup('.product-photo .large-button','.frame-size .view360');
   }
 
 }

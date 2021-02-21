@@ -184,6 +184,26 @@
 .multiple-slider
 	.slider
 		margin-top: 34px
+		display: flex
+		align-items: center
+		justify-content: center
+		.slick-list
+			width: calc(100% - 80px)!important
+		.slick-prev
+			background-image: url('./img/arrow-prev.svg')
+			margin-right: 18px
+			left: 0
+		.slick-next
+			background-image: url('./img/arrow-next.svg')
+			margin-left: 18px
+			right: 0
+		.slick-arrow
+			flex: 0 0 20px
+			height: 40px
+			font-size: 0
+			background-repeat: no-repeat
+			&:before,&:after
+				content: none
 	.slide
 		width: 197px
 		flex: 0 0 197px
